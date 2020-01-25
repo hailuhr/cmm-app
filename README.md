@@ -1,24 +1,46 @@
-# README
+# CMD App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```shell
+git clone
+cd project
+```
 
-* System dependencies
+### Check Ruby version
 
-* Configuration
+```terminal
+ruby -v
+```
 
-* Database creation
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv):
 
-* Database initialization
+```terminal
+rbenv install 2.6.5p114
+```
 
-* How to run the test suite
+### Install dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+Use [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
 
-* Deployment instructions
+```terminal
+bundle && yarn
+```
 
-* ...
+### Set environment variables
+
+### Initialize the database
+
+```terminal
+rails db:create db:migrate db:seed
+```
+
+## Serve
+
+```terminal
+rails s
+```
+
+visit http://localhost:3000/
