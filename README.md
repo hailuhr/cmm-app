@@ -15,7 +15,7 @@ cd project
 ruby -v
 ```
 
-If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv):
+Install the right ruby version using [rbenv] if it's not the same as below (https://github.com/rbenv/rbenv):
 
 ```terminal
 rbenv install 2.6.5p114
