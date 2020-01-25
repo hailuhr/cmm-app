@@ -5,7 +5,7 @@
 ### Clone the repository
 
 ```shell
-git clone
+git clone git@github.com:hailuhr/cmd-app.git
 cd project
 ```
 
