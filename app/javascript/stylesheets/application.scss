@@ -1,1 +1,20 @@
 @import "bootstrap";
+
+.cmm-logo {
+  height: 5vh;
+  padding: 0 5px 0 0;
+}
+
+
+a.cmm-logo, .footer {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+span#copyright {
+  float: left;
+}
+
+span#hearts {
+  position: absolute;
+  right: 15px;
+}

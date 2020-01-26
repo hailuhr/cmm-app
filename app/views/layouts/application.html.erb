@@ -8,10 +8,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <style>
-      .cmm-logo {
-        height: 5vh;
-        padding: 0 5px 0 0;
-      }
+
     </style>
   </head>
   <body>
@@ -19,6 +16,7 @@
     <%= render partial: "layouts/navbar" %>
 
     <%= yield %>
+    <%= render partial: "layouts/footer" %>
 
   </body>
 </html>
