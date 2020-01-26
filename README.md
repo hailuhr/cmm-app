@@ -1,11 +1,11 @@
-# CMD App
+# CMM App
 
 ## Install
 
 ### Clone the repository
 
 ```shell
-git clone git@github.com:hailuhr/cmd-app.git
+git clone git@github.com:hailuhr/cmm-app.git
 cd project
 ```
 

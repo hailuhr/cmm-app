@@ -1,7 +1,7 @@
 RSpec.describe "Project root paths ", type: :request do
   let(:user) { User.create!(email: "test@aol.com", password: "password") }
 
-  describe "Access to CMD app root page" do
+  describe "Access to CMM app root page" do
     describe "Public access with no login" do
       it "denies access to root and routes to login page" do
         get root_path
