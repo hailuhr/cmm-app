@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def index
+    @profiles = Profile.all
   end
 
   def new
@@ -20,12 +21,20 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @profile = Profile.find_by(params[:id])
+
+    if @profile
+      render :show
+    else
+      render root_path
+    end
   end
 
   def edit
   end
 
   def update
+    
     if @profile.update(profile_params)
       render :show
     else

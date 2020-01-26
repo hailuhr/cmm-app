@@ -1,12 +1,11 @@
 <h3 style="text-align:center"> Network </h3>
 <div class="wrapper profile">
-  <% Profile.all.each do |profile| %>
+  <% @profiles.each do |profile| %>
     <div class="profile-box">
-      <p><%= profile.first_name %></p>
-      <p><%= profile.last_name %></p>
-      <p><%= profile.bio %></p>
-      <p><%= profile.bio %></p>
-      <%= link_to "Visit Profile", user_profiles_path(current_user, profile) %>
+      <p>First name: <%= profile.first_name %></p>
+      <p>Last name: <%= profile.last_name %></p>
+      <p>Bio: <%= profile.bio %></p>
+      <%= link_to "Visit Profile", user_profile_path(id: profile.id, user_id: current_user.id), :class => "profile-links" %>
     </div>
   <% end %>
 </div>
