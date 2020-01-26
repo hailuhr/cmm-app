@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
 
+    @profile.user_id = @user.id
     if @profile.save
       render :show
     else
@@ -59,6 +60,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :bio, :user_id)
+    params.require(:profile).permit(:first_name, :last_name, :bio)
   end
 end

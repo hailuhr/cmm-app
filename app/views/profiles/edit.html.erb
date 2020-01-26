@@ -1,8 +1,9 @@
-<div class="wrapper">
-  <div class="edit-form" style="margin-right:160px; margin-top: 50px;">
-    <h3> Edit Profile </h3>
+<div class="test center" style="margin-right:160px; margin-top: 50px;">
+  
+  <h3> Edit Profile </h3>
 
-      <%= render partial: "layouts/profile_form.html.erb" %>
-      <%= link_to 'Delete Profile', user_profile_path(current_user, @profile), :method => :delete, :class => "btn btn-danger" %>
-  </div>
+    <%= render partial: "layouts/profile_form.html.erb" %>
+
+    <%= link_to 'Delete Profile', user_profile_path(current_user, @profile), :method => :delete, :class => "btn btn-danger" %>
+
 </div>
