@@ -40,7 +40,7 @@ RSpec.describe "Profiles", type: :request do
 
         expect(response).to have_http_status(:success)
         expect(response).to render_template(:show)
-        expect(response.body).to include("profile-head")
+        expect(response.body).to include("profile-view")
       end
 
       it "creates a new Profile" do
