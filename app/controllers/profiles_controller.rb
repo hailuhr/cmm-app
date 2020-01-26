@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_user, only: [:new, :show, :create, :edit, :update, :destroy]
 
   def index
     @profiles = Profile.all
@@ -21,7 +21,6 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find_by(params[:id])
 
     if @profile
       render :show
@@ -34,7 +33,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    
+
     if @profile.update(profile_params)
       render :show
     else
@@ -52,11 +51,11 @@ class ProfilesController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def set_profile
-    @profile = Profile.find_by(params[:id])
+    @profile = Profile.find_by(id: params[:id].to_i)
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:user_id].to_i)
   end
 
   def profile_params
