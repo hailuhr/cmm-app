@@ -5,7 +5,7 @@
       <p>First name: <%= profile.first_name %></p>
       <p>Last name: <%= profile.last_name %></p>
       <p>Bio: <%= profile.bio %></p>
-      <%= link_to "Visit Profile", user_profile_path(id: profile.id, user_id: profile.user.id), :class => "profile-links" %>
+      <%= link_to "Visit Profile", user_profile_path(id: profile.id, user_id: profile.user.id), class: "a-primary" %>
     </div>
   <% end %>
 </div>

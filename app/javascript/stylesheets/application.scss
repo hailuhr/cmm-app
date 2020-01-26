@@ -114,13 +114,38 @@ span#hearts {
   border-color: #5887B4;
 }
 
+.btn-primary:hover {
+  color: lightgrey;
+  background: #5887B4;
+  border-color: #5887B4;
+}
+
 .heart-symbol {
-  color: #F59323;
+  color: #DE1A53;
+}
+
+a.a-primary:link, a.a-primary:visited {
+background-color: #F59323;
+color: white;
+
+padding: 8px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+}
+
+a.a-primary:hover, a.a-primary:active {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 
 
-// for tablets and mobile device styling
+
+
+
+//Below css for tablets and mobile device styling
+
+
 @media screen and (min-width: 500px) {
   /* no grid support? */
   .sidebar {
