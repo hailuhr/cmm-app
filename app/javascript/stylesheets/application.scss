@@ -124,7 +124,7 @@ span#hearts {
   color: #DE1A53;
 }
 
-a.a-primary:link, a.a-primary:visited {
+a.profile-link:link, a.profile-link:visited {
 background-color: #F59323;
 color: white;
 
@@ -134,7 +134,7 @@ text-decoration: none;
 display: inline-block;
 }
 
-a.a-primary:hover, a.a-primary:active {
+a.profile-link:hover, a.profile-link:active {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
