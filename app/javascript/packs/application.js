@@ -18,3 +18,11 @@ const imagePath = (name) => images(name, true)
 
 import "bootstrap";
 import "../stylesheets/application";
+
+function main() {
+  $('.delete-profile').on('click', function() {
+    window.alert("Are you sure you want to do this?");
+  });
+}
+
+$(document).ready(main);
