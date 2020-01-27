@@ -1,0 +1,36 @@
+<div class="wrapper profile-view">
+  <header class="header">
+    <h1>Projects</h1>
+  </header>
+  <aside class="sidebar">
+    <div class="profile-img">
+    </div>
+
+    <div class="profile-work">
+        <br>
+    </div>
+  </aside>
+  <article class="content">
+
+    <div class="profile-info">
+      <label>Project Name:</label>
+      <%=@project.name%>
+      <br>
+
+      <% if !(@project.tasks.empty?) %>
+        <label>Task List</label>
+        <% @project.tasks.each do |project| %>
+          <%=project.name%>
+          <% end %>
+
+      <% else %>
+        <label>Task List: No Tasks</label>
+      <% end %>
+
+    </div>
+
+    <%= link_to 'All Projects', projects_path, :class => "btn btn-secondary" %>
+
+
+  </article>
+</div>

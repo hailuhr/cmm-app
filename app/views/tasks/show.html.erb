@@ -1,0 +1,29 @@
+<div class="wrapper profile-view">
+  <header class="header">
+    <h1>Tasks</h1>
+  </header>
+  <aside class="sidebar">
+    <div class="profile-img">
+    </div>
+
+    <div class="profile-work">
+        <br>
+    </div>
+  </aside>
+  <article class="content">
+
+    <div class="profile-info">
+      <label>Task Name:</label>
+      <%=@task.name%>
+      <br>
+      <label>Task Description:</label>
+      <%=@task.description%>
+      <br>
+
+    </div>
+
+    <%= link_to 'All Tasks', tasks_path, :class => "btn btn-secondary" %>
+
+
+  </article>
+</div>

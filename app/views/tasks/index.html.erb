@@ -1,0 +1,15 @@
+<h3 class="profile-index-header"> All Tasks </h3>
+
+<div class="wrapper profile">
+
+  <% @tasks.each do |task| %>
+    <div class="profile-box">
+      <p>Task Name: <%= task.name %></p>
+      <p>Task Description: <%= task.description %></p>
+
+      <%= link_to "View Tasks", task_path(id: task.id), :class => "profile-link" %>
+    </div>
+  <% end %>
+
+
+</div>

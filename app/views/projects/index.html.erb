@@ -1,0 +1,13 @@
+<h3 class="profile-index-header"> All Projects </h3>
+
+<div class="wrapper profile">
+
+  <% @projects.each do |project| %>
+    <div class="profile-box">
+      <p>Client Name: <%= project.name %></p>
+      <%= link_to "View Project", project_path(id: project.id), :class => "profile-link" %>
+    </div>
+  <% end %>
+
+
+</div>

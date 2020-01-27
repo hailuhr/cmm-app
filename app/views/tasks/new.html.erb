@@ -1,0 +1,42 @@
+<div class="center center-form">
+
+  <h3> Create Task </h3>
+  <div class="task-form">
+
+
+    <%= form_for(@task, :html => {:class => "form-group"}) do |f| %>
+
+    <%= f.label :Project %><br />
+    <%= f.collection_select :project_id, Project.order(:name),:id,:name %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "last_name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_field :description, autofocus: true, autocomplete: "last_name" %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit "Save Task", :class => "btn btn-primary submit-button profile-form-button" %>
+      </div>
+
+      <% if @task.errors.any? %>
+      <div id="error_explanation" class="devise-errors">
+        <h6><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h6>
+
+        <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+    <% end %>
+
+    <%= link_to 'Cancel', root_path, :class => "btn btn-secondary" %>
+</div>
+</div>
