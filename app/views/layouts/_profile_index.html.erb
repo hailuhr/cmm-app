@@ -1,28 +1,8 @@
-<% Profile.all.each do |profile| %>
-    <div class="row">
-        <div class="col-md-6">
-            <label>Name</label>
-        </div>
-        <div class="col-md-6">
-            <p><%=profile.full_name%></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label>Email</label>
-        </div>
-        <div class="col-md-6">
-          <p><%=profile.user.email%></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label>Profile Bio</label>
-        </div>
-        <div class="col-md-6">
-          <p><%=profile.bio%></p>
-        </div>
-    </div>
+<% @profiles.each do |profile| %>
+  <div class="profile-box">
+    <p>First name: <%= profile.first_name %></p>
+    <p>Last name: <%= profile.last_name %></p>
+    <p>Bio: <%= profile.bio %></p>
+    <%= link_to "Visit Profile", user_profile_path(id: profile.id, user_id: profile.user.id), :class => "profile-link" %>
+  </div>
 <% end %>
-
-<%= yield %>

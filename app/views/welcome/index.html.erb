@@ -1,11 +1,7 @@
-<h3 style="text-align:center"> Network </h3>
+<h3 class="profile-index-header">Your Network </h3>
+
 <div class="wrapper profile">
-  <% @profiles.each do |profile| %>
-    <div class="profile-box">
-      <p>First name: <%= profile.first_name %></p>
-      <p>Last name: <%= profile.last_name %></p>
-      <p>Bio: <%= profile.bio %></p>
-      <%= link_to "Visit Profile", user_profile_path(id: profile.id, user_id: profile.user.id), :class => "profile-link" %>
-    </div>
-  <% end %>
+
+  <%= render partial: "layouts/profile_index" %>
+
 </div>
