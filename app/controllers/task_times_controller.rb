@@ -18,7 +18,6 @@ class TaskTimesController < ApplicationController
     if @task_time.save
       render :show
     else
-
       render :new
     end
   end
@@ -82,7 +81,6 @@ class TaskTimesController < ApplicationController
   end
 
   def formatted_end_date
-
     if params[:task_time]["end_time(1i)"].present?
         year_format = params["task_time"]["end_time(1i)"]
         year = "#{year_format[2]}#{year_format[3]}"

@@ -13,9 +13,6 @@ class TaskTime < ApplicationRecord
     min = minutes % 60
     hours = minutes / 60
 
-    # if min < 10
-    #   new_min = "0#{min}"
-    # end
 
      "hours: #{hours} minutes: #{min}"
   end
