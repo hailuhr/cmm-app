@@ -3,6 +3,17 @@
   <h3> Create Task Time </h3>
   <div class="task-time-form">
 
+    <% clients.each do |client| %>
+        <%= "#{client.name}" %>
+        <% client.projects.each do |project| %>
+            <%= project.name %>
+              <% project.tasks.each do |task| %>
+                  <%= task.name %>
+              <% end %>
+        <% end %>
+    <% end %>
+
+
     <%= form_for(@task_time, :html => {:class => "form-group"}) do |f| %>
 
       <%= f.collection_select :task_id, Task.order(:name),:id,:name %>

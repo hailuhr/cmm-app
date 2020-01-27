@@ -17,5 +17,11 @@ Rails.application.routes.draw do
   resources :clients
   resources :projects
   resources :tasks
-  resources :task_times
+  resources :task_times do
+    member do
+      get :stop
+    end
+  end
+
+  # get "/tasks/:id/stop", task_times_controller:
 end

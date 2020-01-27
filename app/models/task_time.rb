@@ -3,6 +3,21 @@ class TaskTime < ApplicationRecord
   belongs_to :user
   belongs_to :task
 
-  validates :start_time, :end_time, :notes, presence: true
+  validates :start_time, :notes, presence: true
+
+  def calculate_duration
+    # end_time -  start_time
+    seconds = (end_time - start_time).to_i
+    sec = seconds % 60
+    minutes = seconds / 60
+    min = minutes % 60
+    hours = minutes / 60
+
+    # if min < 10
+    #   new_min = "0#{min}"
+    # end
+
+     "hours: #{hours} minutes: #{min}"
+  end
 
 end

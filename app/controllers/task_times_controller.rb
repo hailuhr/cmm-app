@@ -1,5 +1,5 @@
 class TaskTimesController < ApplicationController
-  before_action :set_task_time, only: [:show, :edit, :update, :destroy]
+  before_action :set_task_time, only: [:show, :edit, :update, :destroy, :stop]
   before_action :set_user
 
 
@@ -12,14 +12,13 @@ class TaskTimesController < ApplicationController
   end
 
   def create
-    binding.pry
-
     @task_time = TaskTime.new(clean_task_time_params)
 
     @task_time.user_id = @user.id
     if @task_time.save
       render :show
     else
+
       render :new
     end
   end
@@ -31,6 +30,11 @@ class TaskTimesController < ApplicationController
     else
       render root_path
     end
+  end
+
+  def stop
+    @task_time.update(end_time: DateTime.now)
+    render :show
   end
 
   def edit
@@ -53,6 +57,10 @@ class TaskTimesController < ApplicationController
 
   private
   # Never trust parameters from the scary internet, only allow the white list through.
+
+  def task_duration
+  end
+
   def set_user
     @user = current_user
   end
@@ -62,25 +70,28 @@ class TaskTimesController < ApplicationController
   end
 
   def formatted_start_date
-    year_format = params["task_time"]["start_time(1i)"]
-    year = "#{year_format[2]}#{year_format[3]}"
+    year = params["task_time"]["start_time(1i)"]
+    # year = "#{year_format[2]}#{year_format[3]}"
     month = params["task_time"]["start_time(2i)"]
     day = params["task_time"]["start_time(3i)"]
     hour = params["task_time"]["start_time(4i)"]
     minutes = params["task_time"]["start_time(5i)"]
 
-    "#{hour}:#{minutes} #{day}/#{month}/#{year}"
+    "#{hour}:#{minutes} #{year}/#{month}/#{day}"
   end
 
   def formatted_end_date
-    year_format = params["task_time"]["end_time(1i)"]
-    year = "#{year_format[2]}#{year_format[3]}"
-    month = params["task_time"]["end_time(2i)"]
-    day = params["task_time"]["end_time(3i)"]
-    hour = params["task_time"]["end_time(4i)"]
-    minutes = params["task_time"]["end_time(5i)"]
 
-    "#{hour}:#{minutes} #{day}/#{month}/#{year}"
+    if params[:task_time]["end_time(1i)"].present?
+        year_format = params["task_time"]["end_time(1i)"]
+        year = "#{year_format[2]}#{year_format[3]}"
+        month = params["task_time"]["end_time(2i)"]
+        day = params["task_time"]["end_time(3i)"]
+        hour = params["task_time"]["end_time(4i)"]
+        minutes = params["task_time"]["end_time(5i)"]
+
+      "#{hour}:#{minutes} #{year}/#{month}/#{day}"
+    end
   end
 
  # Date.strptime( "#{month}/#{day}/#{year} #{hour}:#{minutes}", "%d/%m/%y %H:%M")
@@ -91,8 +102,15 @@ class TaskTimesController < ApplicationController
   end
 
   def clean_task_time_params
+    # binding.pry
     start_time = DateTime.parse(formatted_start_date)
-    end_time = DateTime.parse(formatted_end_date)
+    # end_time = DateTime.parse(formatted_end_date)
+
+    if formatted_end_date
+      end_time = DateTime.parse(formatted_end_date)
+    else
+      end_time = nil
+    end
 
     {
       start_time: start_time,

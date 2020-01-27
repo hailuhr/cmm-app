@@ -2,7 +2,42 @@
 
 <div class="wrapper profile">
 
+  <div class="task-time-form">
 
+    <%= form_for(@task_time, :html => {:class => "form-group"}) do |f| %>
+
+      <%= f.collection_select :task_id, Task.order(:name),:id,:name %>
+
+      <div class="field">
+        <%= f.label :start_time %><br />
+        <%= f.datetime_select :start_time, autofocus: true, autocomplete: "last_name" %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :notes %><br />
+        <%= f.text_field :notes, autofocus: true, autocomplete: "bio" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Start Timer", :class => "btn btn-primary submit-button profile-form-button" %>
+      </div>
+
+      <% if @task_time.errors.any? %>
+      <div id="error_explanation" class="devise-errors">
+        <h6><%= pluralize(@task_time.errors.count, "error") %> prohibited this task_time from being saved:</h6>
+
+        <ul>
+        <% @task_time.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+    <% end %>
+
+
+  </div>
 
   <div class="task-time-form">
 
