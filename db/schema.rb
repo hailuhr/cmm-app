@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_23_211658) do
+ActiveRecord::Schema.define(version: 2020_01_27_155610) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
@@ -20,6 +24,39 @@ ActiveRecord::Schema.define(version: 2020_01_23_211658) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_projects_on_client_id"
+  end
+
+  create_table "task_time", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "notes"
+    t.integer "user_id"
+    t.integer "task_id"
+    t.index ["task_id"], name: "index_task_time_on_task_id"
+    t.index ["user_id"], name: "index_task_time_on_user_id"
+  end
+
+  create_table "task_times", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "notes"
+    t.integer "user_id"
+    t.integer "task_id"
+    t.index ["task_id"], name: "index_task_times_on_task_id"
+    t.index ["user_id"], name: "index_task_times_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "project_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|

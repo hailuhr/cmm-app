@@ -9,4 +9,13 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: :index
+
+  # resources :clients do
+  #   resources :projects
+  # end
+
+  resources :clients
+  resources :projects
+  resources :tasks
+  resources :task_times
 end

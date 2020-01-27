@@ -1,0 +1,9 @@
+<% clients.each do |client| %>
+    <%= "#{client.name}" %>
+    <% client.projects.each do |project| %>
+        <%= project.name %>
+          <% project.tasks.each do |task| %>
+              <%= task.name %>
+          <% end %>
+    <% end %>
+<% end %>

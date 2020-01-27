@@ -1,9 +1,6 @@
-<h3 class="profile-index-header">Time Table</h3>
+<div class="center center-form">
 
-<div class="wrapper profile">
-
-
-
+  <h3> Create Task Time </h3>
   <div class="task-time-form">
 
     <%= form_for(@task_time, :html => {:class => "form-group"}) do |f| %>
@@ -42,5 +39,6 @@
       <% end %>
     <% end %>
 
-  <%= link_to 'Create New Task', new_task_time_path, :class => "btn btn-secondary" %>
+    <%= link_to 'Cancel', root_path, :class => "btn btn-secondary" %>
+</div>
 </div>
