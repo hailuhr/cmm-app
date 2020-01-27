@@ -55,6 +55,7 @@ class TaskTimesController < ApplicationController
     redirect_to root_path
   end
 
+
   private
   # Never trust parameters from the scary internet, only allow the white list through.
 
@@ -94,17 +95,12 @@ class TaskTimesController < ApplicationController
     end
   end
 
- # Date.strptime( "#{month}/#{day}/#{year} #{hour}:#{minutes}", "%d/%m/%y %H:%M")
- # test = "#{hour}:#{minutes} #{day}/#{month}/#{year}"
-
   def task_time_params
     params.require(:task_time).permit(:start_time, :end_time, :notes, :task_id)
   end
 
   def clean_task_time_params
-    # binding.pry
     start_time = DateTime.parse(formatted_start_date)
-    # end_time = DateTime.parse(formatted_end_date)
 
     if formatted_end_date
       end_time = DateTime.parse(formatted_end_date)
