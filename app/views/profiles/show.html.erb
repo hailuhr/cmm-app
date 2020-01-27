@@ -26,9 +26,9 @@
 
     </div>
     <% if @profile.user_id == current_user.id %>
-      <%= link_to 'Edit Profile', edit_user_profile_path(current_user, @profile), :class => "btn btn-secondary edit-profile"%>
+      <%= link_to 'Edit Profile', edit_user_profile_path(current_user, @profile), :class => "btn btn-secondary edit-profile profile-page-button"%>
     <% else %>
-      <%= link_to 'Home', root_path, :class => "btn btn-primary link-to-home"%>
+      <%= link_to 'Home', root_path, :class => "btn btn-primary link-to-home profile-page-button"%>
     <% end %>
   </article>
 </div>

@@ -19,10 +19,13 @@ end
 
 
 10.times do |index|
+  bio = ""
+  5.times { |i| bio += " #{Faker::Lorem.sentence}" }
+
   profile = Profile.create(
              first_name: Faker::Name.first_name,
              last_name: Faker::Name.last_name,
-             bio: Faker::Lorem.sentence,
+             bio: bio,
              user_id: index
            )
 end
