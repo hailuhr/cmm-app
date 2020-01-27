@@ -20,9 +20,12 @@ import "bootstrap";
 import "../stylesheets/application";
 
 function main() {
+
   $('.delete-profile').on('click', function() {
+    console.log("deleting?")
     window.alert("Are you sure you want to do this?");
   });
+
 }
 
-$(document).ready(main);
+$(document).on('turbolinks:load', main)
