@@ -1,6 +1,6 @@
 <div class="wrapper profile-view">
   <header class="header">
-    <h1>Client</h1>
+    <h1><%=@client.name%> Client</h1>
   </header>
   <aside class="sidebar">
     <div class="profile-img">
@@ -13,21 +13,24 @@
   <article class="content">
 
     <div class="profile-info">
-      <label>Client Name:</label>
-      <%=@client.name%>
-      <br>
 
       <% if !(@client.projects.empty?) %>
-        <label>Project Names</label>
+        <label>Projects:</label>
         <% @client.projects.each do |project| %>
+          <br>
           <%=project.name%>
         <% end %>
-
+      <% else %>
+        <br>
+        No projects at the moment
+        <br>
       <% end %>
 
     </div>
 
-    <%= link_to 'All Clients', clients_path, :class => "btn btn-secondary" %>
+    <br>
+    <span><%= link_to 'All Clients', clients_path, :class => "btn btn-secondary" %></span>
+    <span><%= link_to 'Edit Client', edit_client_path, :class => "btn btn-primary" %></span>
 
 
   </article>

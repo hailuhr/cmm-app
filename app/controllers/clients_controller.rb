@@ -55,7 +55,8 @@ class ClientsController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by(id: params[:user_id].to_i)
+    @user = current_user
+    # @user = User.find_by(id: params[:user_id].to_i)
   end
 
   def client_params
